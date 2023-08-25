@@ -9,13 +9,18 @@ import java.util.Scanner;
 
 public class Part2Main {
 
-    public static void recursiveFirstPass(int n, int max, int indent) {
-        if (n <= max) {
-            String indentString = String.format( "%" +indent + "s" + "");
-            System.out.println(indentString + "This was written by call number " + n + ".");
-            recursiveFirstPass(n + 1, max, indent + 3);
-        }
+    public static void recursiveFirstPass(int n, int currentCall, int maxIndent) {
+        if (n <= 0)  return;
+
+//            String indentString = String.format(" ", 4 * (maxIndent - n));
+        String indentString = " ".repeat(maxIndent - n);
+            System.out.println(indentString + "This was written by call number " + currentCall);
+
+            recursiveFirstPass(n - 1, currentCall + 1, maxIndent);
+            System.out.println(indentString + "This was ALSO written by call number " + currentCall);
+
     }
+
 
     public static void main(String[] args ) {
         System.out.println("[Recursion]");
@@ -23,7 +28,8 @@ public class Part2Main {
         System.out.println("What is n?: ");
         Scanner scan = new Scanner(System.in);
         n = scan.nextInt();
-        recursiveFirstPass(0, n, n);
+        int maxIndent = 3 * (n - 1);
+        recursiveFirstPass(n, 1, maxIndent);
     }
 
 }
