@@ -55,25 +55,26 @@ public class Part1Main {
         }
     }
     public static void main(String[] args) {
+        int x, y;
         System.out.println("[Linked List Iterator Assignment 03]");
-   /* wrote this menu out to give the user the option to input test data.
+   //wrote this menu out to give the user the option to input test data.
         while(true) {
             System.out.print("Please enter an x: ");
             Scanner scan = new Scanner(System.in);
-            int x = scan.nextInt();
+             x = scan.nextInt();
             System.out.print("Please enter a y: ");
-            int y = scan.nextInt();
+             y = scan.nextInt();
             removeRepetitions();
             printRange(x,y);
             System.out.print("Would you like to quit? (Y/N): ");
             String quit = scan.next();
             if (quit.equalsIgnoreCase("y")) { System.exit(0); }
         }
-     */
-        int x = 8;
-        int y = 5;
-        removeRepetitions();
-        printRange(x, y);
+
+     // int x = 8;
+     //   int y = 5;
+     //   removeRepetitions();
+    //    printRange(x, y);
     }
 
 }
