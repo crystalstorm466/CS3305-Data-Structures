@@ -4,8 +4,7 @@
 //Assignment: 4 – Part 2 Palindromes
 package Assignment04;
 
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*; //simplifies instead of using 2 lines
 
 public class Part2Main {
 
@@ -20,7 +19,7 @@ public class Part2Main {
             3. level
             4. racecar
             5. noon
-            6. kaykak
+            6. kayak
             7. rotator
             8. madam
             9. deed

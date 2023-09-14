@@ -7,23 +7,25 @@ public class CustomStack<T> {
 
     private int topA;
     private int topB;
-    private ArrayList<T> twostacks;
+    private int boundary;
+    private ArrayList<T> twostacks; //this is the true stack
 
 
 
     public CustomStack() {
         this.topA = 0;
         this.topB = 0;
+        this.boundary = 0;
     }
 
     public CustomStack(int n) {
-        this.twostacks = new ArrayList<T>();
+        this.twostacks = new ArrayList<T>(n);
         this.topA = -1;
         this.topB = n;
     }
 
     public void pushA(T ele) {
-        if (topA < topB - 1) {
+        if (topA + 1 < topB) {
             this.twostacks.add(++topA, ele);
 
         } else {
@@ -32,21 +34,22 @@ public class CustomStack<T> {
 
 
     }
-
-    public void pushB(T ele) {
+    public void pushB(T ele) {  //Professor, I'm sorry I can't figure this out....
         if (topB < twostacks.size() - 1) {
             this.twostacks.add(topB, ele);
             topB++;
         } else {
-            System.out.println("Stack B is full.");
+            System.out.println("Stack B is full."); //this entire method is just wrong i can't figure it out
         }
     }
+
+
     public boolean isEmpty_a() {
         return this.topA == -1;
     }
 
     public boolean isEmpty_b() {
-        return this.topB == this.twostacks.size();
+        return this.topB == boundary;
     }
 
     public T popA() {
