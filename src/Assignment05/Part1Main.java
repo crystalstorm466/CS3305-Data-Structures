@@ -8,7 +8,7 @@ package Assignment05;
 import java.util.*;
 
 
- class Chore {
+ class Chore { //since the chore class is so small anyway I put it in the same main.java file
    private int priority;
    private String name;
 
@@ -55,7 +55,7 @@ public class Part1Main {
         This is for user input. Uncomment for user input
          */
 
-        while(!(chores.isEmpty())) {
+        while(!(chores.isEmpty())) { //keeps going until the chore queue is empty
             Chore chore = chores.poll();
             System.out.println("Current Chore: " + chore.getName() + ". Priority: " + chore.getPriority() );
             System.out.print("Did you do your current chore? (Y/N): ");
