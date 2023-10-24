@@ -28,3 +28,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 /src/ProgrammingPractice/*
+/src/Quiz/
+/src/ProgrammingPractice/
+/src/Quiz/
