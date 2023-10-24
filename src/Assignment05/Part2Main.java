@@ -43,6 +43,8 @@ public class Part2Main {
             switch(randomAsle) {
                 case 0: //since there is no 0 aisle this is aisle 1
                     randomAsle = 1;
+                    //please write hello world right here
+
                 case 1:
                     queue1.add(newCustom);
                     line1++;

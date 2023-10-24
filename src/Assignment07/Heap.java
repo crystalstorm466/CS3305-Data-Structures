@@ -42,7 +42,7 @@ public class Heap<E extends Comparable<E>> {
         list.remove(list.size() - 1);
 
         int currentIndex = 0;
-        while(currentIndex < list.size()) {
+        while(currentIndex < list.size()) { //sorts the heap
             int leftChildIndex = 2 * currentIndex + 1;
             int rightChildIndex = 2 * currentIndex + 2;
 
