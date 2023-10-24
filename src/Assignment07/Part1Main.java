@@ -8,21 +8,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import java.util.LinkedList;
 
 public class Part1Main {
     public static void main(String[] args) {
         linkedList preSort = new linkedList();
         try { //reads the file provided and inputs into a linkedlist to be read
-            File mergeTest = new File("src/Assignment07/mergetest.txt");
+            File mergeTest = new File("src/Assignment07/mergetest.txt"); //provided test file
             Scanner filescanner = new Scanner(mergeTest);
-            while (filescanner.hasNextInt()) {
+            while (filescanner.hasNextInt()) { //reads the file and inputs into a linkedlist
                 int data = filescanner.nextInt();
                 System.out.println(data);
                 preSort.push(data);
             }
             filescanner.close();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) { //catches the exception if the file is not found which should not happen
             throw new RuntimeException(e);
         }
 

@@ -30,7 +30,7 @@ public class linkedList {
         if (b == null) {
             return a;
         }
-        if (a.val <= b.val) {
+        if (a.val <= b.val) { //compares the values of the nodes and sorts them accordingly using recursion
             result = a;
             result.next = sortedMerge(a.next, b);
         } else {
@@ -43,38 +43,38 @@ public class linkedList {
 
     node mergeSort(node h) {
         if (h == null || h.next == null) {
-            return h;
+            return h; //returns the node if it is null or if it is the last node
         }
 
-        node middle = getMiddle(h);
-        node nextOfMiddle = middle.next;
+        node middle = getMiddle(h); //gets the middle node
+        node nextOfMiddle = middle.next; //gets the next node
 
         middle.next = null;
 
-        node left = mergeSort(h);
+        node left = mergeSort(h); //recursively sorts the left side of the list
 
-        node right = mergeSort(nextOfMiddle);
+        node right = mergeSort(nextOfMiddle); //recursively sorts the right side of the list
 
-        node sortedList = sortedMerge(left, right);
+        node sortedList = sortedMerge(left, right); //merges the two sides together
         return sortedList;
     }
-    public static node getMiddle(node head) {
+    public static node getMiddle(node head) { //gets the middle node of the list
         if (head == null) {
             return head;
         }
         node slow = head, fast = head;
-        while (fast.next != null && fast.next.next != null) {
+        while (fast.next != null && fast.next.next != null) { //iterates through the list
             slow = slow.next;
             fast = fast.next.next;
         }
         return slow;
     }
-        void push(int new_data) {
+        void push(int new_data) { //adds a new node to the list
             node new_node = new node(new_data);
             new_node.next = head;
             head = new_node;
         }
-        void printList(node headref) {
+        void printList(node headref) { //prints the list
             while (headref != null) {
                 System.out.print(headref.val + " ");
                 headref = headref.next;
