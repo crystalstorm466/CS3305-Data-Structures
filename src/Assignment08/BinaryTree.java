@@ -41,8 +41,8 @@ public class BinaryTree {
 
         int inIndex = search(in, inStart, inEnd, tempNode.data);
 
-        tempNode.left = buildTree(in, pre, inStart, inIndex - 1);
-        tempNode.right = buildTree(in, pre, inIndex + 1, inEnd);
+        tempNode.left = buildTree(in, pre, inStart, inIndex - 1); //recursively builds the left side of tree
+        tempNode.right = buildTree(in, pre, inIndex + 1, inEnd);  //recursively builds the right side of tree
 
         return tempNode;
     }
