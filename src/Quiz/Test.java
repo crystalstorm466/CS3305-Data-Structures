@@ -9,10 +9,11 @@ public class Test {
 
         public static int f(int n) {
             count++;
-            if (n == 0 )
-                return 1;
-            else
-                return (f(n-1) + n * n);
+//            if (n == 0 )
+//                return 1;
+//            else
+                System.out.println(n);
+                return (f(n) + n * n);
         }
 
 }
