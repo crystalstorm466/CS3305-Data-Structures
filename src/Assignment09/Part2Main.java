@@ -5,7 +5,7 @@
 //Assignment: 9-Part-2-AVL
 package Assignment09;
 
-import java.util.Random;
+import java.util.*;
 
 public class Part2Main {
     public static void main(String[] args) {
@@ -21,15 +21,67 @@ public class Part2Main {
         // 5. For each node , its left descendants are less than the current node, which is less than the right descendants
         System.out.println("[Assignment 9 - AVL Trees]");
         AVLTree<Integer> tree = new AVLTree<>();
-        for (int i = 0; i < 3; i++) { //creates an AVL tree with dummy data
+        /*
+        for (int i = 0; i < 100; i++) { //creates an AVL tree with dummy data
+           //if you want some fun set i < 100 to 1 < signed 32 bit integer limit (2147483646)
             Random rand = new Random();
             int randInt = rand.nextInt(100);
+            System.out.println(i);
             tree.insert(randInt);
         }
 
+         */
+        for (int i = 1; i <= 5; i++) {
+            Scanner scan = new Scanner(System.in);
+            System.out.print("Please input an integer for index: " + i + ": ");
+            int userint = scan.nextInt();
+            tree.insert(userint);
+            boolean isAVLTree = testAVLTree(tree, i);
+            System.out.println(isAVLTree);
+        }
 
-        System.out.println(tree.isBalanced(tree.root));
+//        for (int i = 0; i < tree.getSize(); i++) {
+//            Random rand = new Random();
+//            int randInt = rand.nextInt(tree.getSize() - 1);
+//            tree.delete(randInt);
+//            tree.preorder();
+//            System.out.println();
+//            randInt = rand.nextInt(5);
+//            if (randInt < 3) {
+//                break;
+//            }
+//        }
+
+        System.out.println("Final Result: " + tree.isBalanced(tree.root));
     }
+
+    private static boolean testAVLTree(AVLTree<Integer> tree, int i) {
+
+        if (!tree.isBalanced(tree.root)) {
+            System.out.println("Tree is not balanced after inserting: " + i);
+            return false;
+        } else {
+            System.out.println("Tree is still balanced after inserting: " + i);
+            //can't return here as the tree might get unbalanced soon
+        }
+
+
+        //deletion test
+        for (int num : tree) {
+            tree.delete(num);
+            if (!tree.isBalanced(tree.root)) {
+                System.out.println("Tree is not balanced after deleting: " + num);
+                return false;
+            } else {
+                System.out.println("Tree is still balanced after deleting: " + num);
+                //can't return here as the tree might get unbalanced soon
+
+            }
+        }
+        return true; //if you make it here the tree is definitely balanced
+    }
+
+
 
 
 }
