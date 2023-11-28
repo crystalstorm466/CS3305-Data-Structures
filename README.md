@@ -27,6 +27,7 @@ Current Assignments:
   6. Assignment 06
   7. Assignment 07
   8. Assignment 08
+  9. Assignment 09
 
 ```
 
