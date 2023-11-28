@@ -7,11 +7,11 @@
 package Assignment10;
 
 
-class HashNode {
+class HashNode { //class to represent an entry in the hashmap
     int key;
     int value;
 
-    public HashNode(int key, int value) {
+    public HashNode(int key, int value) { //constructor
         this.key = key;
         this.value = value;
 
@@ -19,14 +19,14 @@ class HashNode {
 }
 
 
-public class MyHashMap {
+public class MyHashMap { //implementation of a hashmap
     int capacity;
     int size;
 
     HashNode[] array;
     HashNode dummy; //dummi
 
-    public MyHashMap() {
+    public MyHashMap() { //constructor
         this.capacity = 20;
         this.size = 0;
         this.array = new HashNode[this.capacity];
