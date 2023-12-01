@@ -10,7 +10,7 @@ import java.util.*;
 public class Part2Main {
     public static void main(String[] args) {
 
-        //Tree.java, AbstractTree.java, and BST.java were all taken from the textbook as instructed
+        //Tree.java, AbstractGraph.java, and BST.java were all taken from the textbook as instructed
         //AVLTree.java - Code to build the tree was taken from the textbook however the balancing checks were handwritten.
 
         //AVL tree criteria: (freecodecamp.org)
