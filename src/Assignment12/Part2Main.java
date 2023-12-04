@@ -25,6 +25,7 @@ public class Part2Main { //Kruskal's Algorithm
         parent = new int[graph.getNumVertices()];
 
         //graph.addEdge(source, destination, weight);
+        //We add Edges based off of provided graph in assignment .pdf
         //A - 0
         //B - 1
         //C - 2
@@ -47,14 +48,16 @@ public class Part2Main { //Kruskal's Algorithm
 
 
         System.out.println("Adjacency Matrix: ");
-        System.out.println(graph);
+        System.out.println(graph); //print current graph
 
         System.out.println("Kruskal's Algorithm - MST");
-        kruskal(graph);
+        kruskal(graph); //preform kruskal's algorithm on graph
+        Part1Main.primm(graph); //preform primm's algorithm on graph
+        Part3Main.dijkstra(graph, 0); //preform dijkstra's algorithm on graph
 
     }
 
-    private static void kruskal(Graph graph) {
+    public static void kruskal(Graph graph) {
 
         int minCost = 0;
 
