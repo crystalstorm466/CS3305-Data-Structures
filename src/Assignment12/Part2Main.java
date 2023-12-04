@@ -37,7 +37,7 @@ public class Part2Main { //Kruskal's Algorithm
         graph.addEdge(0, 5, 7);//A - F
         graph.addEdge(1, 4, 9); //B - E
         graph.addEdge(1, 7, 3); //B - H
-        graph.addEdge(2, 5,2); //C - F
+        graph.addEdge(2, 5, 2); //C - F
         graph.addEdge(2, 3, 3); //C - D
         graph.addEdge(2, 6, 9); //C - G
         graph.addEdge(3, 6, 7); //D - G
