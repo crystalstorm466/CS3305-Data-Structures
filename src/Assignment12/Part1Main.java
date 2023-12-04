@@ -47,7 +47,8 @@ public class Part1Main { //Primm's Algorithm
         System.out.println(graph);
 
       System.out.println("Primm's Algorithm - MST");
-      primm(graph);
+      primm(graph); //preform primm's algorithm on graph
+      Part2Main.kruskal(graph); //preform kruskal's algorithm on graph
 
     }
 
