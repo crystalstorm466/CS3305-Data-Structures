@@ -7,8 +7,8 @@ package Assignment12;
 
 import java.util.*;
 public class Part2Main { //Kruskal's Algorithm
-    public static Graph graph = new Graph(9);
-    public static int[] parent;
+    public static Graph graph = new Graph(9); //create graph
+    public static int[] parent; //create parent array
     public static void main(String[] args) {
         System.out.println("[Assignment 12]");
         System.out.println("[Kruskal's Algorithm]");
@@ -66,11 +66,14 @@ public class Part2Main { //Kruskal's Algorithm
         }
 
         int edge_count = 0;
-        while(edge_count < graph.getNumVertices() - 1) {
-            int min = Integer.MAX_VALUE, a = -1, b = -1;
-            for (int i = 0; i < graph.getNumVertices(); i++) {
+        while(edge_count < graph.getNumVertices() - 1) { //O(n^2)  //while there are still edges to be added
+            int min = Integer.MAX_VALUE, a = -1, b = -1; //find minimum edge
+
+            for (int i = 0; i < graph.getNumVertices(); i++) { //what does these for loops do?
                 for (int j = 0; j < graph.getNumVertices(); j++) {
-                    if (find(i) != find(j) && graph.getEdge(i, j) < min) {
+                //  the nested for loops are used to iterate through the matrix and find the minimum edge
+
+                    if (find(i) != find(j) && graph.getEdge(i, j) < min) { //if the edge is not already in the tree and the edge is less than the current minimum
                         min = graph.getEdge(i, j);
                         a = i;
                         b = j;
@@ -78,20 +81,19 @@ public class Part2Main { //Kruskal's Algorithm
                 }
             }
             union1(a, b);
-        //    System.out.println("Edge " + edge_count++ + ": (" + a + ", " + b + ") cost: " + min);
-            System.out.printf("Edge %d: (%d, %d) cost:%d \n", edge_count++, a, b, min);
+            System.out.println("Edge " + edge_count++ + ": (" + a + ", " + b + ") cost: " + min); //print edge
             minCost += min;
         }
-        System.out.println("Minimum cost = " + minCost);
+        System.out.println("Minimum cost = " + minCost); //print minimum cost
     }
 
-    static int find(int i) {
+    static int find(int i) { //finds parent of node
        while (parent[i] != i) {
            i = parent[i];
        }
        return i;
     }
-    static void union1(int i, int j) {
+    static void union1(int i, int j) { //unites two nodes
         int a = find(i);
         int b = find(j);
         parent[a] = b;

@@ -16,12 +16,14 @@ public class Part1Main { //Primm's Algorithm
 
         //System.out.print("How many verticies do you want in your graph?: ");
         //  int verticies = scan.nextInt();
-        int verticies = 9;
+        int verticies = 9; //based off provided graph in assignment .pdf
 
 
         Graph graph = new Graph(verticies);
 
-        //graph.addEdge(source, destination, weight);
+        //graph.addEdge(source, destination, weight); //formula for addEdge();
+        //We add weighted Edges based off of provided graph in assignment .pdf
+        //Alphabetical order of verticies
         //A - 0
         //B - 1
         //C - 2
@@ -44,7 +46,7 @@ public class Part1Main { //Primm's Algorithm
 
 
         System.out.println("Adjacency Matrix: ");
-        System.out.println(graph);
+        System.out.println(graph); //print current graph
 
       System.out.println("Primm's Algorithm - MST");
       primm(graph); //preform primm's algorithm on graph
@@ -53,35 +55,35 @@ public class Part1Main { //Primm's Algorithm
     }
 
     static void primm(Graph graph) {
-        boolean[] visited = new boolean[graph.getNumVertices()];
-        boolean[] selected = new boolean[graph.getNumVertices()];
+        boolean[] visited = new boolean[graph.getNumVertices()]; //create visited array
+        boolean[] selected = new boolean[graph.getNumVertices()]; //create selected array
         Arrays.fill(selected, false);
-        visited[0] = true;
-        selected[0] = true;
+        visited[0] = true; //Our start vertex
+        selected[0] = true;  //Our start vertex
         //int edges = (graph.getNumVertices() * (graph.getNumVertices() - 1)) / 2;
         int edges = 0;
         while (edges < graph.getNumVertices() - 1) { //O(n^2
-            int minWeight = Integer.MAX_VALUE;
-            int minSrc = -1;
-            int minDest = -1;
+            int minWeight = Integer.MAX_VALUE; //set minWeight to max value
+            int minSrc = -1; //set minSrc to -1
+            int minDest = -1; //set minDest to -1
             int x = 0;
             int y = 0;
 
-            for (int i = 0; i < graph.getNumVertices() - 1; i++) {
-                if (selected[i]) {
-                    for (int j = 0; j < graph.getNumVertices() - 1; j++) {
-                        if (!visited[j] && graph.getEdge(i, j) != 0) {
-                            if (minWeight > graph.getEdge(i, j)) {
-                                minWeight = graph.getEdge(i, j);
-                                minSrc = i;
-                                minDest = j;
+            for (int i = 0; i < graph.getNumVertices() - 1; i++) { //O(n^2)
+                if (selected[i]) { //if vertex is selected
+                    for (int j = 0; j < graph.getNumVertices() - 1; j++) { //O(n^2) //find minimum edge
+                        if (!visited[j] && graph.getEdge(i, j) != 0) { //if vertex is not visited and edge is not 0
+                            if (minWeight > graph.getEdge(i, j)) { //if current edge is less than minWeight
+                                minWeight = graph.getEdge(i, j); //set minWeight to current edge
+                                minSrc = i; //set minSrc to current vertex
+                                minDest = j; //set minDest to current vertex
                             }
                         }
                     }
                 }
             }
-            if (minSrc != -1 && minDest != -1) {
-                System.out.println(minSrc + " - " + minDest + " : " + minWeight );
+            if (minSrc != -1 && minDest != -1) { //if minSrc and minDest are not -1
+                System.out.println(minSrc + " - " + minDest + " : " + minWeight ); //print edge
                 visited[minDest] = true;
                 selected[minDest] = true;
                 edges++;
@@ -91,4 +93,4 @@ public class Part1Main { //Primm's Algorithm
 
         }
     }
-}
+}//EOF
