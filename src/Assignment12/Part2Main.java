@@ -5,10 +5,7 @@
 //Assignment: 12-ExtraCredit-1-Kruskal
 package Assignment12;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-
+import java.util.*;
 public class Part2Main { //Kruskal's Algorithm
     public static Graph graph = new Graph(9);
     public static int[] parent;
