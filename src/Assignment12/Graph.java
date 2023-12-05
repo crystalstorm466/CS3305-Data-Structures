@@ -25,6 +25,7 @@ public class Graph {
     public void addEdge(int source, int destination, int weight) {
         adjMatrix[source][destination] = weight;
         adjMatrix[destination][source] = weight; //for undirected graphs, consider both directions
+        if (adjMatrix[source][destination] == Integer.MAX_VALUE) { adjMatrix[source][destination] = 0; }
     }
 
     public void removeEdge(int source, int destination) { //removes edge from graph (though technically not even needed)
@@ -34,14 +35,16 @@ public class Graph {
 
     public int getNumVertices() { return numVertices; } //retrieves number of vertices
 
-    public int getEdge(int source, int destination) { return adjMatrix[source][destination]; } //retrieves weight of edge
+    public int getEdge(int source, int destination) { return adjMatrix[source][destination]; } //retrieves edge from graph
 
     @Override
     public String toString() { //prints adjacency matrix
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < numVertices; i++) {
             for (int j = 0; j < numVertices; j++) {
-                s.append(adjMatrix[i][j] + " ");
+                if (adjMatrix[i][j] == Integer.MAX_VALUE) { s.append("- "); } else {
+                    s.append(adjMatrix[i][j] + " ");
+                }
             }
             s.append("\n");
         }

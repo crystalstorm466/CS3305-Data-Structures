@@ -13,7 +13,6 @@ public class Part2Main { //Kruskal's Algorithm
         System.out.println("[Assignment 12]");
         System.out.println("[Kruskal's Algorithm]");
 
-        Scanner scan = new Scanner(System.in);
 
         //System.out.print("How many verticies do you want in your graph?: ");
       //  int verticies = scan.nextInt();
@@ -52,12 +51,14 @@ public class Part2Main { //Kruskal's Algorithm
 
         System.out.println("Kruskal's Algorithm - MST");
         kruskal(graph); //preform kruskal's algorithm on graph
-        Part1Main.primm(graph); //preform primm's algorithm on graph
-        Part3Main.dijkstra(graph, 0); //preform dijkstra's algorithm on graph
+//        System.out.println("Primm's Algorithm - MST");
+//        Part1Main.primm(graph); //preform primm's algorithm on graph
+//        System.out.println("Dijkstra's Algorithm - Shortest Path");
+//        Part3Main.dijkstra(graph, 0); //preform dijkstra's algorithm on graph
 
     }
 
-    public static void kruskal(Graph graph) {
+    public static void kruskal(Graph graph) { //main meat of program
 
         int minCost = 0;
 
@@ -80,7 +81,7 @@ public class Part2Main { //Kruskal's Algorithm
                     }
                 }
             }
-            union1(a, b);
+            union1(a, b); //merge sets
             System.out.println("Edge " + edge_count++ + ": (" + a + ", " + b + ") cost: " + min); //print edge
             minCost += min;
         }

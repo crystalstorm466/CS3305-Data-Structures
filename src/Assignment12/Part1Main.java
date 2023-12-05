@@ -50,7 +50,10 @@ public class Part1Main { //Primm's Algorithm
 
       System.out.println("Primm's Algorithm - MST");
       primm(graph); //preform primm's algorithm on graph
-      Part2Main.kruskal(graph); //preform kruskal's algorithm on graph
+        //System.out.println("Kruskal's Algorithm - MST");
+        //Part2Main.kruskal(graph); //preform kruskal's algorithm on graph
+        //System.out.println("Dijkstra's Algorithm - Shortest Path");
+        //Part3Main.dijkstra(graph, 0); //preform dijkstra's algorithm on graph
 
     }
 
@@ -69,9 +72,9 @@ public class Part1Main { //Primm's Algorithm
             int x = 0;
             int y = 0;
 
-            for (int i = 0; i < graph.getNumVertices() - 1; i++) { //O(n^2)
+            for (int i = 0; i < graph.getNumVertices(); i++) { //O(n^2)
                 if (selected[i]) { //if vertex is selected
-                    for (int j = 0; j < graph.getNumVertices() - 1; j++) { //O(n^2) //find minimum edge
+                    for (int j = 0; j < graph.getNumVertices(); j++) { //O(n^2) //find minimum edge
                         if (!visited[j] && graph.getEdge(i, j) != 0) { //if vertex is not visited and edge is not 0
                             if (minWeight > graph.getEdge(i, j)) { //if current edge is less than minWeight
                                 minWeight = graph.getEdge(i, j); //set minWeight to current edge
