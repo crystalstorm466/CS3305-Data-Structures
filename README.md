@@ -36,7 +36,6 @@ Current Assignments:
 
 ______________________
 
-This repository will be kept private until late in the Semester when
-there's a lot more assignments.
+Repoistory is now public.
 
 
