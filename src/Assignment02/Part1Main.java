@@ -38,7 +38,7 @@ public class Part1Main {
         System.out.println("The factorial of " + n + " is: " + factorial(n));
     }
 
-    public static int factorial(int n) {
+    public static float factorial(int n) {
         if (n == 0) {
             return 1;
         } else {
